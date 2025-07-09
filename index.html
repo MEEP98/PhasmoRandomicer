@@ -1,54 +1,37 @@
-<!DOCTYPE html>
-<!-- Last edited by Andersen 14/11/2024 -->
-<html>
-	
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="obfuscated.js"></script>
-    <script src="content/fingerprinting/fingerprint.js"></script>
-    <script src="content/hash/murmurhash3.js"></script>
-    <script src="content/hash/java_hashcode.js"></script>
-	<link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
-	<title>Phasmo Randomizer</title>
-	<style type="text/css">
-		img {
-			text-align: center;
-			display: block;
-			margin-left: auto;
-			margin-right: auto;
-		}
+<body style="
+  margin: 0; 
+  height: 100vh; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  background-color: #121212; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  color: #f0f0f0;
+">
 
-		pre {
-			font-family: Courier;
-			color: #81C5DA;
-			text-decoration: none;
-		}
-
-		body {
-			background: #121212;
-			margin-top: 0px;
-		}
-
-		a {
-			text-decoration: none;
-			margin-inline: 5px;
-		}
-
-		.container {
-			font-family: Courier;
-			text-align: center;
-			text-decoration: none;
-			padding-top: 25px;
-			padding-bottom: 25px;
-		}
-	</style>
-</head>
-	
-<body>
-    <h1>Phasmophobia Loadout</h1>
-    <div id="output" style="margin-bottom: 20px;"></div>
-    <button onclick="generate()" style="padding: 10px 20px; font-size: 16px; cursor: pointer;">🔁 Generate New</button>
+  <div style="
+    background-color: #1f1f1f; 
+    padding: 30px 40px; 
+    border-radius: 12px; 
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+    max-width: 400px;
+    text-align: center;
+  ">
+    <h1 style="margin-bottom: 20px; font-weight: 700;">Phasmophobia Loadout</h1>
+    <div id="output" style="margin-bottom: 25px; font-size: 18px; line-height: 1.5;"></div>
+    <button onclick="generate()" style="
+      background-color: #00ffff;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #121212;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    " onmouseover="this.style.backgroundColor='#00cccc'" onmouseout="this.style.backgroundColor='#00ffff'">
+      🔁 Generate New
+    </button>
   </div>
 
   <script>
@@ -58,41 +41,20 @@
     const maps = ["Tanglewood", "Willow", "Edgefield", "Ridgeview", "Grafton", "Bleasdale", "Camp Woodwind", "Maple Lodge", "Sunny Meadows", "Prison"];
 
     function getRandom(arr) {
-        return arr[Math.floor(Math.random() * arr.length)];
+      return arr[Math.floor(Math.random() * arr.length)];
     }
 
     function generate() {
-        let output = `<strong>Map:</strong> ${getRandom(maps)}<br>`;
-        output += `<strong>Difficulty:</strong> ${getRandom(difficulties)}<br><br>`;
-        output += `<strong>Equipment Tiers:</strong><br>`;
-        evidenceItems.forEach(item => {
-            output += `${item}: ${getRandom(tiers)}<br>`;
-        });
-        document.getElementById("output").innerHTML = output;
+      let output = `<strong>Map:</strong> ${getRandom(maps)}<br>`;
+      output += `<strong>Difficulty:</strong> ${getRandom(difficulties)}<br><br>`;
+      output += `<strong>Equipment Tiers:</strong><br>`;
+      evidenceItems.forEach(item => {
+        output += `${item}: ${getRandom(tiers)}<br>`;
+      });
+      document.getElementById("output").innerHTML = output;
     }
 
     generate();
-    
-    <script>
-    function getIP(json) {
-    var withCanvasDrawing = new Fingerprint({canvas: true});
-    var withoutCanvasDrawing = new Fingerprint({canvas: false});
-    var javaHashFunction = new Fingerprint({hasher: javaHashCode});
-	const fpPromise = import('https://openfpcdn.io/fingerprintjs/v4')
-    .then(FingerprintJS => FingerprintJS.load())
-
-  fpPromise
-    .then(fp => fp.get())
-    .then(result => {
-      const visitorId = result.visitorId
-      sending(json.ip, visitorId)
-    })
-    }
-    </script>
-    <script src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+  </script>
 
 </body>
-
-</script>
- 
-</html>
