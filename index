@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phasmophobia Randomizer</title>
+    <style>
+        body { font-family: sans-serif; background: #111; color: #0f0; padding: 20px; }
+        h1 { color: #0ff; }
+    </style>
+</head>
+<body>
+    <h1>Phasmophobia Loadout</h1>
+    <div id="output"></div>
+    <button onclick="generate()">🔁 Generate New</button>
+
+    <script>
+        const evidenceItems = ["EMF", "Laser Dots", "Camera", "UV Light", "Spirit Box", "Thermometer", "Ghost Writing Book"];
+        const tiers = ["Tier 1", "Tier 2", "Tier 3", "Nothing"];
+        const difficulties = ["Amateur", "Intermediate", "Professional", "Nightmare", "Insanity"];
+        const maps = ["Tanglewood", "Willow", "Edgefield", "Ridgeview", "Grafton", "Bleasdale", "Camp Woodwind", "Maple Lodge", "Sunny Meadows", "Prison"];
+
+        function getRandom(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        function generate() {
+            let output = `<strong>Map:</strong> ${getRandom(maps)}<br>`;
+            output += `<strong>Difficulty:</strong> ${getRandom(difficulties)}<br><br>`;
+            output += `<strong>Equipment Tiers:</strong><br>`;
+            evidenceItems.forEach(item => {
+                output += `${item}: ${getRandom(tiers)}<br>`;
+            });
+            document.getElementById("output").innerHTML = output;
+        }
+
+        generate();
+    </script>
+</body>
+</html>
