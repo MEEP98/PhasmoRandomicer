@@ -1,46 +1,13 @@
-<style>
-    body {
-        font-family: sans-serif;
-        background: #111;
-        color: #0f0;
-        margin: 0;
-        height: 100vh;
-        display: flex;
-        justify-content: center;   /* Center horizontally */
-        align-items: center;       /* Center vertically */
-        flex-direction: column;
-    }
-
-    h1 {
-        color: #0ff;
-        margin-bottom: 20px;
-    }
-
-    #output {
-        text-align: left;
-        background: #222;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px #0f0;
-        margin-bottom: 20px;
-    }
-
-    button {
-        background: #0ff;
-        color: #000;
-        padding: 10px 20px;
-        font-size: 16px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    button:hover {
-        background: #0cc;
-    }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phasmophobia Randomizer</title>
+    <style>
+        body { font-family: sans-serif; background: #111; color: #0f0; padding: 20px; }
+        h1 { color: #0ff; }
+    </style>
 </head>
-	
 <body>
     <h1>Phasmophobia Loadout</h1>
     <div id="output"></div>
@@ -65,5 +32,9 @@
             });
             document.getElementById("output").innerHTML = output;
         }
+
         generate();
+    </script>
+</body>
+</html>
 
