@@ -61,11 +61,11 @@
         }
 
         function generate() {
-            let output = `<strong>Map:</strong> ${getRandom(maps)}<div>`;
-            output += `<strong>Difficulty:</strong> ${getRandom(difficulties)}<div><div>`;
-            output += `<strong>Equipment Tiers:</strong><div>`;
+            let output = `<strong>Map:</strong> ${getRandom(maps)}<br>`;
+            output += `<strong>Difficulty:</strong> ${getRandom(difficulties)}<br><br>`;
+            output += `<strong>Equipment Tiers:</strong><br>`;
             evidenceItems.forEach(item => {
-                output += `${item}: ${getRandom(tiers)}<div>`;
+                output += `${item}: ${getRandom(tiers)}<br>`;
             });
             document.getElementById("output").innerHTML = output;
         }
