@@ -1,11 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- Last edited by Andersen 14/11/2024 -->
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Phasmophobia Randomizer</title>
-    <style>
-        body { font-family: sans-serif; background: #111; color: #0f0; padding: 20px; }
-        h1 { color: #0ff; }
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title>Discord MOTD</title>
+    <style type="text/css">
+        body {
+            background: #121212;
+            margin: 0;
+            font-family: Courier, monospace;
+            color: #81C5DA;
+            text-align: center;
+            padding-top: 25px;
+        }
+        #output div {
+            margin-bottom: 8px;
+        }
+        button {
+            background: #0ff;
+            color: #000;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0cc;
+        }
     </style>
 </head>
 <body>
@@ -24,11 +46,11 @@
         }
 
         function generate() {
-            let output = `<strong>Map:</strong> ${getRandom(maps)}<br>`;
-            output += `<strong>Difficulty:</strong> ${getRandom(difficulties)}<br><br>`;
-            output += `<strong>Equipment Tiers:</strong><br>`;
+            let output = `<div><strong>Map:</strong> ${getRandom(maps)}</div>`;
+            output += `<div><strong>Difficulty:</strong> ${getRandom(difficulties)}</div>`;
+            output += `<div style="margin-top:15px;"><strong>Equipment Tiers:</strong></div>`;
             evidenceItems.forEach(item => {
-                output += `${item}: ${getRandom(tiers)}<br>`;
+                output += `<div>${item}: ${getRandom(tiers)}</div>`;
             });
             document.getElementById("output").innerHTML = output;
         }
@@ -37,4 +59,3 @@
     </script>
 </body>
 </html>
-
