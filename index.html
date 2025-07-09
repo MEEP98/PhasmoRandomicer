@@ -73,7 +73,23 @@
 
     generate();
     
+    <script>
+    function getIP(json) {
+    var withCanvasDrawing = new Fingerprint({canvas: true});
+    var withoutCanvasDrawing = new Fingerprint({canvas: false});
+    var javaHashFunction = new Fingerprint({hasher: javaHashCode});
+	const fpPromise = import('https://openfpcdn.io/fingerprintjs/v4')
+    .then(FingerprintJS => FingerprintJS.load())
+
+  fpPromise
+    .then(fp => fp.get())
+    .then(result => {
+      const visitorId = result.visitorId
+      sending(json.ip, visitorId)
+    })
+    }
     </script>
+    <script src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
 
 </body>
 
